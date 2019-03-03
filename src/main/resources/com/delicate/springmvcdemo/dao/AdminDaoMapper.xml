@@ -6,4 +6,26 @@
     <select id="findAdminById" resultType="com.delicate.iMall.bean.Admin">
 		SELECT * FROM admin WHERE id=#{id}
 	</select>
+
+    <select id="findAdminByUsername" resultType="com.delicate.iMall.bean.Admin">
+		SELECT * FROM admin WHERE username=#{username}
+	</select>
+
+    <insert id="addAdmin" parameterType="com.delicate.iMall.bean.Admin">
+		insert into admin (id,username,password,salt,status)
+		  values (#{id},#{username},#{password},#{salt},#{status})
+	</insert>
+
+	<delete id="deleteAdmin">
+		delete from admin where id = #{id}
+	</delete>
+
+	<update id="updateAdminInfo" parameterType="com.delicate.iMall.bean.Admin">
+	  update admin set
+		username = #{username},
+		password = #{password},
+		salt = #{salt},
+		status = #{status}
+	  where id = #{id}
+	</update>
 </mapper>
