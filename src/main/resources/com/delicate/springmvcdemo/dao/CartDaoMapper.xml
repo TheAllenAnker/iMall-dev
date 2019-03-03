@@ -2,8 +2,26 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.delicate.iMall.dao.UserDao">
-    <select id="getAllCartItemsByUserId" resultType="com.delicate.iMall.bean.CartItem">
-		SELECT * FROM cart_item WHERE userId=#{userId}
+<mapper namespace="com.delicate.iMall.dao.CartDao">
+    <select id="getAllCartItemsByCartId" resultType="com.delicate.iMall.bean.CartItem">
+		SELECT * FROM cart_item WHERE cartId=#{cartId}
 	</select>
+
+	<insert id="addCartItem" parameterType="com.delicate.iMall.bean.CartItem">
+		INSERT INTO cart_item(id, cartId, productId, count, price)
+		VALUES(#{id}, #{cartId}, #{productId}, #{count}, #{price})
+	</insert>
+
+	<delete id="deleteCartItemById">
+		delete from cart_item where productId = #{productId}
+	</delete>
+
+	<update id="updateCartItemInfo" parameterType="com.delicate.iMall.bean.CartItem">
+		update cart_item set
+			cartId = #{cartId},
+			productId = #{productId},
+			count = #{count},
+			price = = #{price}
+		  where id = #{id}
+	</update>
 </mapper>

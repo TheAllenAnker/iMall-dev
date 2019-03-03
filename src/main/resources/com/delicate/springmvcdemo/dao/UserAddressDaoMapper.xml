@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.delicate.iMall.dao.UserAddressDao">
+    <select id="getAddressesByUserId" resultType="com.delicate.iMall.bean.UserAddress">
+		SELECT * FROM user_address WHERE userId=#{userId} AND status = 0
+	</select>
+
+	<insert id="addAddress" parameterType="com.delicate.iMall.bean.UserAddress">
+		INSERT INTO user_address(id, userId, address, status)
+		VALUES(#{id}, #{userId}, #{address}, #{status})
+	</insert>
+
+	<update id="deleteAddressById">
+		update user_address set
+			status = 1
+		where id = #{id}
+	</update>
+
+	<update id="updateAddressInfo" parameterType="com.delicate.iMall.bean.UserAddress">
+		update user_address set
+			userId = #{userId},
+			address = #{address},
+			status = #{status}
+		  where id = #{id}
+	</update>
+</mapper>

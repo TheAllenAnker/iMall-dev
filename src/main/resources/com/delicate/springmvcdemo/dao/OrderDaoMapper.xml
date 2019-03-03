@@ -4,6 +4,27 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.delicate.iMall.dao.OrderDao">
     <select id="getOrdersByUserId" resultType="com.delicate.iMall.bean.Order">
-		SELECT * FROM order WHERE userId=#{userId}
+		SELECT * FROM order WHERE userId=#{userId} and status = 0
 	</select>
+
+	<insert id="addOrder" parameterType="com.delicate.iMall.bean.Order">
+		INSERT INTO order(id, userId, date, price, addressId, status)
+		VALUES(#{id}, #{userId}, #{date}, #{price}, #{addressId}, #{status})
+	</insert>
+
+	<delete id="deleteOrder">
+		update order set
+			status = 1
+		where id = #{id}
+	</delete>
+
+	<update id="updateOrderInfo" parameterType="com.delicate.iMall.bean.Order">
+		update order set
+			userId = #{userId},
+			date = #{date},
+			price = #{price},
+			addressId = #{addressId},
+			status = #{staus}
+		  where id = #{id}
+	</update>
 </mapper>

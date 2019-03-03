@@ -2,8 +2,27 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.delicate.iMall.dao.UserDao">
+<mapper namespace="com.delicate.iMall.dao.ProductCategoryDao">
     <select id="getAllProductCategories" resultType="com.delicate.iMall.bean.ProductCategory">
-		SELECT * FROM product_category
+		SELECT * FROM prod_cate and status = 0
 	</select>
+
+	<insert id="addProductCategory" parameterType="com.delicate.iMall.bean.ProductCategory">
+		insert into prod_cate (id,level,name,status)
+		  values (#{id},#{level},#{name},#{status})
+	</insert>
+
+	<update id="deleteProductCategoryByName">
+		update prod_cate set
+			status = 1
+		where name = #{name}
+	</update>
+
+	<update id="updateProductCategoryInfo" parameterType="com.delicate.iMall.bean.ProductCategory">
+		update prod_cate set
+			level = #{level},
+			name = #{name},
+			status = #{status}
+		  where id = #{id}
+	</update>
 </mapper>

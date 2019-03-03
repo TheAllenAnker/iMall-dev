@@ -5,11 +5,11 @@ import com.delicate.iMall.bean.CartItem;
 import java.util.List;
 
 public interface CartService {
-    List<CartItem> getAllCartItemsByUserId(String userId);
+    List<CartItem> getAllCartItemsByCartId(String cartId);
 
     void addCartItem(CartItem cartItem);
 
-    void deleteCartItem(CartItem cartItem);
+    void deleteCartItemById(String productId);
 
     void updateCartItemInfo(CartItem cartItem);
 }

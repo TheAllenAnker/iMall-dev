@@ -14,8 +14,8 @@ public class CartServiceImpl implements CartService {
     private CartDao cartDao;
 
     @Override
-    public List<CartItem> getAllCartItemsByUserId(String userId) {
-        return cartDao.getAllCartItemsByUserId(userId);
+    public List<CartItem> getAllCartItemsByCartId(String cartId) {
+        return cartDao.getAllCartItemsByCartId(cartId);
     }
 
     @Override
@@ -24,8 +24,8 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public void deleteCartItem(CartItem cartItem) {
-        cartDao.deleteCartItem(cartItem);
+    public void deleteCartItemById(String productId) {
+        cartDao.deleteCartItemById(productId);
     }
 
     @Override

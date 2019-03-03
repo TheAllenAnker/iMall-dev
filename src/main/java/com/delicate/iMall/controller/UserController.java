@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.List;
-
 @Controller
 @RequestMapping("/user")
 public class UserController {
@@ -19,8 +17,8 @@ public class UserController {
     @RequestMapping(value = "/allUsers", method = RequestMethod.GET)
     @ResponseBody
     public String home(String username, String password) {
-        List<User> users = userService.findAllUsers();
-        System.out.println(users);
-        return users.toString();
+        User user = userService.findUserById("1");
+        System.out.println(user);
+        return user.toString();
     }
 }

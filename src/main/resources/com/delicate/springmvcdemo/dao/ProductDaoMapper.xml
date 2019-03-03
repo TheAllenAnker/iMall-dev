@@ -2,8 +2,38 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.delicate.iMall.dao.UserDao">
+<mapper namespace="com.delicate.iMall.dao.ProductDao">
     <select id="findProductById" resultType="com.delicate.iMall.bean.Product">
-		SELECT * FROM product WHERE id=#{id}
+		SELECT * FROM product WHERE id=#{id} and status = 0
 	</select>
+
+    <select id="getNewProducts" resultType="com.delicate.iMall.bean.Product">
+		SELECT * FROM product
+		WHERE categoryId IN
+		(SELECT id FROM prod_cate
+		WHERE level=0) and status = 0;
+	</select>
+
+    <insert id="addProduct" parameterType="com.delicate.iMall.bean.Product">
+		INSERT INTO product(id, productName, price, categoryId, description, inventory, cover, status)
+		VALUES(#{id}, #{productName}, #{price}, #{categoryId}, #{description}, #{inventory}, #{cover}, #{status})
+	</insert>
+
+	<update id="deleteProductByProductId">
+		update product set
+			status = 1
+		where id = #{id}
+	</update>
+
+	<update id="updateProductInfo" parameterType="com.delicate.iMall.bean.Product">
+		update product set
+			productName = #{productName},
+			price = #{price},
+			categoryId = #{categoryId},
+			description = #{description},
+			inventory = #{inventory},
+			cover = #{cover},
+			status = #{staus}
+		  where id = #{id}
+	</update>
 </mapper>
