@@ -32,4 +32,9 @@ public class CartServiceImpl implements CartService {
     public void updateCartItemInfo(CartItem cartItem) {
         cartDao.updateCartItemInfo(cartItem);
     }
+
+    @Override
+    public void addCart(String userId) {
+        cartDao.addCart(userId);
+    }
 }

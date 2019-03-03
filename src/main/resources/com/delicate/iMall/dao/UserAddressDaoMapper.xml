@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.delicate.iMall.dao.UserAddressDao">
-    <select id="getAddressesByUserId" resultType="com.delicate.iMall.bean.UserAddress">
+    <select id="getAddressesByUserId" resultType="com.delicate.iMall.bean.UserAddress" parameterType="String">
 		SELECT * FROM user_address WHERE userId=#{userId} AND status = 0
 	</select>
 

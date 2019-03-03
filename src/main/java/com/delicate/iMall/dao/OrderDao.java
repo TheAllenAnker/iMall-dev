@@ -1,6 +1,7 @@
 package com.delicate.iMall.dao;
 
 import com.delicate.iMall.bean.Order;
+import com.delicate.iMall.bean.OrderItem;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,4 +15,6 @@ public interface OrderDao {
     void deleteOrder(String orderId);
 
     void updateOrderInfo(Order order);
+
+    void addOrderItem(OrderItem orderItem);
 }

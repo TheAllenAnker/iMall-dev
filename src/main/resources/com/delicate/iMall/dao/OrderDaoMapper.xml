@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.delicate.iMall.dao.OrderDao">
-    <select id="getOrdersByUserId" resultType="com.delicate.iMall.bean.Order">
+    <select id="getOrdersByUserId" resultType="com.delicate.iMall.bean.Order" parameterType="String">
 		SELECT * FROM order_info WHERE userId=#{userId} and status = 0
 	</select>
 
@@ -27,4 +27,9 @@
 			status = #{staus}
 		  where id = #{id}
 	</update>
+
+	<insert id="addOrderItem" parameterType="com.delicate.iMall.bean.OrderItem">
+		INSERT INTO order_item(id, orderId, productId, count, price)
+		VALUES(#{id}, #{orderId}, #{productId}, #{count}, #{price})
+	</insert>
 </mapper>

@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.delicate.iMall.dao.CartDao">
-    <select id="getAllCartItemsByCartId" resultType="com.delicate.iMall.bean.CartItem">
+    <select id="getAllCartItemsByCartId" resultType="com.delicate.iMall.bean.CartItem" parameterType="String">
 		SELECT * FROM cart_item WHERE cartId=#{cartId}
 	</select>
 
@@ -24,4 +24,9 @@
 			price = = #{price}
 		  where id = #{id}
 	</update>
+
+	<insert id="addCart" parameterType="com.delicate.iMall.bean.Cart">
+		INSERT INTO cart(id, userId, price)
+		VALUES(#{id}, #{userId}, #{price})
+	</insert>
 </mapper>

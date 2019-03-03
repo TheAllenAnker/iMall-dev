@@ -1,7 +1,7 @@
 package com.delicate.iMall.bean;
 
 public class User {
-    private int id;
+    private String id;
     private String username;
     private String password;
     private String salt;
@@ -28,11 +28,11 @@ public class User {
                 '}';
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

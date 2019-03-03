@@ -1,6 +1,7 @@
 package com.delicate.iMall.service;
 
 import com.delicate.iMall.bean.Order;
+import com.delicate.iMall.bean.OrderItem;
 
 import java.util.List;
 
@@ -12,4 +13,6 @@ public interface OrderService {
     void deleteOrder(String orderId);
 
     void updateOrderInfo(Order order);
+
+    void addOrderItem(OrderItem orderItem);
 }

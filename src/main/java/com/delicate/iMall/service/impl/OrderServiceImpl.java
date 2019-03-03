@@ -1,6 +1,7 @@
 package com.delicate.iMall.service.impl;
 
 import com.delicate.iMall.bean.Order;
+import com.delicate.iMall.bean.OrderItem;
 import com.delicate.iMall.dao.OrderDao;
 import com.delicate.iMall.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +32,10 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void updateOrderInfo(Order order) {
         orderDao.updateOrderInfo(order);
+    }
+
+    @Override
+    public void addOrderItem(OrderItem orderItem) {
+        orderDao.addOrderItem(orderItem);
     }
 }
