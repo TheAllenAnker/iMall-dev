@@ -4,26 +4,26 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.delicate.iMall.dao.AdminDao">
     <select id="findAdminById" resultType="com.delicate.iMall.bean.Admin">
-		SELECT * FROM admin WHERE id=#{id} and status = 0
+		SELECT * FROM admin_user WHERE id=#{id} and status = 0
 	</select>
 
     <select id="findAdminByUsername" resultType="com.delicate.iMall.bean.Admin">
-		SELECT * FROM admin WHERE username=#{username}
+		SELECT * FROM admin_user WHERE username=#{username}
 	</select>
 
     <insert id="addAdmin" parameterType="com.delicate.iMall.bean.Admin">
-		insert into admin (id,username,password,salt,status)
+		insert into admin_user (id,username,password,salt,status)
 		  values (#{id},#{username},#{password},#{salt},#{status})
 	</insert>
 
 	<update id="deleteAdmin">
-		update admin set
+		update admin_user set
 			status = 1
 		where id = #{id}
 	</update>
 
 	<update id="updateAdminInfo" parameterType="com.delicate.iMall.bean.Admin">
-	  update admin set
+	  update admin_user set
 		username = #{username},
 		password = #{password},
 		salt = #{salt},

@@ -4,11 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.delicate.iMall.dao.ProductCategoryDao">
     <select id="getAllProductCategories" resultType="com.delicate.iMall.bean.ProductCategory">
-		SELECT * FROM prod_cate and status = 0
+		SELECT * FROM prod_cate where status = 0
 	</select>
 
 	<insert id="addProductCategory" parameterType="com.delicate.iMall.bean.ProductCategory">
-		insert into prod_cate (id,level,name,status)
+		insert into prod_cate (id,'level','name',status)
 		  values (#{id},#{level},#{name},#{status})
 	</insert>
 

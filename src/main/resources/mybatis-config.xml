@@ -4,6 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <mappers>
-        <mapper resource="com/delicate/springmvcdemo/dao/UserDaoMapper.xml"/>
+        <mapper resource="com/delicate/iMall/dao/AdminDaoMapper.xml"/>
+        <mapper resource="com/delicate/iMall/dao/CartDaoMapper.xml"/>
+        <mapper resource="com/delicate/iMall/dao/OrderDaoMapper.xml"/>
+        <mapper resource="com/delicate/iMall/dao/ProductCategoryDaoMapper.xml"/>
+        <mapper resource="com/delicate/iMall/dao/ProductDaoMapper.xml"/>
+        <mapper resource="com/delicate/iMall/dao/UserAddressDaoMapper.xml"/>
+        <mapper resource="com/delicate/iMall/dao/UserDaoMapper.xml"/>
     </mappers>
 </configuration>
