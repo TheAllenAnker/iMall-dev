@@ -1,6 +1,5 @@
 package com.delicate.iMall.service.impl;
 
-import com.delicate.iMall.bean.Product;
 import com.delicate.iMall.bean.ProductCategory;
 import com.delicate.iMall.dao.ProductCategoryDao;
 import com.delicate.iMall.service.ProductCategoryService;
@@ -20,8 +19,8 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
     }
 
     @Override
-    public void addProductCategory(Product product) {
-        productCategoryDao.addProductCategory(product);
+    public void addProductCategory(ProductCategory productCategory) {
+        productCategoryDao.addProductCategory(productCategory);
     }
 
     @Override

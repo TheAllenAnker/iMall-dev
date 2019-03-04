@@ -1,5 +1,7 @@
 package com.delicate.iMall.controller;
 
+import com.alibaba.fastjson.JSONObject;
+import com.delicate.iMall.bean.User;
 import com.delicate.iMall.service.UserService;
 import com.delicate.iMall.utils.JSONResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping(path = "/user")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -31,6 +33,19 @@ public class UserController {
         return JSONResult.ok();
     }
 
+    @PostMapping("/updateUseInfo")
+    public JSONResult updateUserInfo(String infoJSONString) {
+        // 从 jsonstring 中获取用户的各项信息后新建一个 user 对象后更新入数据库中
+        JSONObject jsonObject = (JSONObject) JSONObject.parse(infoJSONString);
+        System.out.println(jsonObject.getString("id"));
+        return JSONResult.ok();
+    }
+
+    @RequestMapping("/query")
+    public JSONResult queryUserInfo(String userId) {
+        User user = userService.findUserById(userId);
+        return JSONResult.ok(user);
+    }
 
     /*
 
