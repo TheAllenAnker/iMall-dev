@@ -18,6 +18,4 @@ public class ProductController {
         Product product = productService.findProductById(productId);
         return JSONObject.toJSONString(product);
     }
-
-
 }

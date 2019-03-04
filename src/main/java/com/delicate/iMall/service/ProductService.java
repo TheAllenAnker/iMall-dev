@@ -14,4 +14,6 @@ public interface ProductService {
     void deleteProductByProductId(String productId);
 
     void updateProductInfo(Product product);
+
+    List<Product> getProductsByCategoryName(String categoryName);
 }

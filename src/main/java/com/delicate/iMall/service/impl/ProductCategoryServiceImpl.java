@@ -32,4 +32,9 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
     public void updateProductCategoryInfo(ProductCategory productCategory) {
         productCategoryDao.updateProductCategoryInfo(productCategory);
     }
+
+    @Override
+    public ProductCategory getProductCategoryByName(String categoryName) {
+        return productCategoryDao.getProductCategoryByName(categoryName);
+    }
 }

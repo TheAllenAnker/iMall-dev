@@ -1,6 +1,8 @@
 package com.delicate.iMall.service.impl;
 
 import com.delicate.iMall.bean.Product;
+import com.delicate.iMall.bean.ProductCategory;
+import com.delicate.iMall.dao.ProductCategoryDao;
 import com.delicate.iMall.dao.ProductDao;
 import com.delicate.iMall.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,9 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductDao productDao;
+
+    @Autowired
+    private ProductCategoryDao productCategoryDao;
 
     @Override
     public Product findProductById(String productId) {
@@ -36,5 +41,11 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void updateProductInfo(Product product) {
         productDao.updateProductInfo(product);
+    }
+
+    @Override
+    public List<Product> getProductsByCategoryName(String categoryName) {
+        ProductCategory category = productCategoryDao.getProductCategoryByName(categoryName);
+        return productDao.getProductsByCategoryId(category.getId());
     }
 }

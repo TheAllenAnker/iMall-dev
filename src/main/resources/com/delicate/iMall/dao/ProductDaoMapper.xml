@@ -36,4 +36,8 @@
 			status = #{staus}
 		  where id = #{id}
 	</update>
+
+	<select id="getProductsByCategoryId" resultType="com.delicate.iMall.bean.Product">
+		SELECT * FROM product WHERE categoryId=#{categoryId} and status = 0
+	</select>
 </mapper>
