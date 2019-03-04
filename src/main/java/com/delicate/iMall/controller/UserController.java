@@ -1,20 +1,38 @@
 package com.delicate.iMall.controller;
 
-import com.delicate.iMall.bean.*;
-import com.delicate.iMall.service.*;
+import com.delicate.iMall.service.UserService;
+import com.delicate.iMall.utils.JSONResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
-@Controller
+@RestController
 @RequestMapping("/user")
 public class UserController {
     @Autowired
     private UserService userService;
+
+    @PostMapping("/login")
+    public JSONResult login(String username, String password) {
+        // 查询数据库用户名和密码是否匹配（通过用户名查询获取一个 User 对象，获取其密码对比输入的 password MD5 加密后是否一致）
+        return JSONResult.ok();
+    }
+
+    @PostMapping("/register")
+    public JSONResult register(String username, String password) {
+        // 新建一个 User 对象并初始化其数据加入数据库中，此前需要查询用户名是否已经存在
+        return JSONResult.ok();
+    }
+
+    @PostMapping("/deleteUser")
+    public JSONResult deleteUser(String userId) {
+        userService.deleteUserById(userId);
+        return JSONResult.ok();
+    }
+
+
+    /*
 
     @Autowired
     private AdminService adminService;
@@ -64,4 +82,5 @@ public class UserController {
 
         return user == null ? "Null" : user.toString();
     }
+    */
 }
