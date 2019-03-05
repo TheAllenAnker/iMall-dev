@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.delicate.iMall.bean.ProductCategory;
 import com.delicate.iMall.service.ProductCategoryService;
 import com.delicate.iMall.utils.JSONResult;
+import com.delicate.iMall.utils.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,9 @@ import java.util.List;
 public class ProductCategoryController {
     @Autowired
     private ProductCategoryService productCategoryService;
+
+    @Autowired
+    private Sid sid;
 
     @RequestMapping("/allCategories")
     public String getAllCategories() {

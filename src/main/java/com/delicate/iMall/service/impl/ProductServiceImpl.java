@@ -46,6 +46,6 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> getProductsByCategoryName(String categoryName) {
         ProductCategory category = productCategoryDao.getProductCategoryByName(categoryName);
-        return productDao.getProductsByCategoryId(category.getId());
+        return category == null ? null : productDao.getProductsByCategoryId(category.getId()) ;
     }
 }

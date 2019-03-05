@@ -59,31 +59,4 @@
     <context:component-scan base-package="com.delicate.iMall.service"/>
     <context:component-scan base-package="com.delicate.iMall.dao"/>
     <context:component-scan base-package="com.delicate.iMall.config"/>
-
-    <!--&lt;!&ndash;Configure Freemarker template engine&ndash;&gt;-->
-    <!--&lt;!&ndash;  FreeMarker &ndash;&gt;-->
-    <!--<bean id="freeMarkerViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">-->
-    <!--<property name="order" value="0"/>-->
-    <!--<property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>-->
-    <!--</bean>-->
-
-
-    <!--&lt;!&ndash; FreeMarker&ndash;&gt;-->
-    <!--<bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">-->
-    <!--<property name="configLocation" value="/WEB-INF/freemarker.properties"/>-->
-    <!--<property name="templateLoaderPath" value="/WEB-INF/ftl/"/>-->
-    <!--<property name="freemarkerVariables">-->
-    <!--<map>-->
-    <!--<entry key="xml_escape" value-ref="fmXmlEscape"/>-->
-    <!--</map>-->
-    <!--</property>-->
-    <!--</bean>-->
-
-    <!--<bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape"/>-->
-
-    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-    <!--<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />-->
-    <!--<property name="prefix" value="/WEB-INF/templates/" />-->
-    <!--<property name="suffix" value=".ftl" />-->
-    <!--</bean>-->
 </beans>
