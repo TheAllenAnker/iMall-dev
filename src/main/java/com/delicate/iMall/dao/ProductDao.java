@@ -9,8 +9,6 @@ import java.util.List;
 public interface ProductDao {
     Product findProductById(String productId);
 
-    List<Product> getNewProducts();
-
     void addProduct(Product product);
 
     void deleteProductByProductId(String productId);

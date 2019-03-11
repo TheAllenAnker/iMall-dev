@@ -30,6 +30,7 @@ public class ProductCategoryController {
     @PostMapping("/addCategory")
     public JSONResult addProductCategory(String prodCateJsonString) {
         ProductCategory productCategory = JSONObject.parseObject(prodCateJsonString, ProductCategory.class);
+        productCategory.setId(sid.nextShort().substring(0, 8));
         productCategoryService.addProductCategory(productCategory);
         return JSONResult.ok();
     }

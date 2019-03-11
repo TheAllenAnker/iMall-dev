@@ -1,5 +1,6 @@
 package com.delicate.iMall.service;
 
+import com.delicate.iMall.bean.Cart;
 import com.delicate.iMall.bean.CartItem;
 
 import java.util.List;
@@ -9,9 +10,13 @@ public interface CartService {
 
     void addCartItem(CartItem cartItem);
 
-    void deleteCartItemById(String productId);
+    void deleteCartItemById(String productId, String cartId);
 
     void updateCartItemInfo(CartItem cartItem);
 
-    void addCart(String userId);
+    void addCart(Cart cart);
+
+    Cart findCartByUserId (String userId);
+
+    CartItem findCartItemById(String cartId, String productId);
 }

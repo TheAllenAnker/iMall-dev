@@ -1,5 +1,6 @@
 package com.delicate.iMall.service.impl;
 
+import com.delicate.iMall.bean.Cart;
 import com.delicate.iMall.bean.CartItem;
 import com.delicate.iMall.dao.CartDao;
 import com.delicate.iMall.service.CartService;
@@ -24,8 +25,8 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public void deleteCartItemById(String productId) {
-        cartDao.deleteCartItemById(productId);
+    public void deleteCartItemById(String productId, String cartId) {
+        cartDao.deleteCartItemById(productId, cartId);
     }
 
     @Override
@@ -34,7 +35,17 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public void addCart(String userId) {
-        cartDao.addCart(userId);
+    public void addCart(Cart cart) {
+        cartDao.addCart(cart);
+    }
+
+    @Override
+    public Cart findCartByUserId(String userId) {
+        return cartDao.findCartByUserId(userId);
+    }
+
+    @Override
+    public CartItem findCartItemById(String cartId, String productId) {
+        return cartDao.findCartItemById(cartId, productId);
     }
 }

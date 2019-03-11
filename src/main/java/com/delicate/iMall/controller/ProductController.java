@@ -15,13 +15,13 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping("/query")
-    public String findProductById(String productId) {
+    @PostMapping(value = "/query")
+    public JSONResult findProductById(String productId) {
         Product product = productService.findProductById(productId);
-        return JSONObject.toJSONString(product);
+        return JSONResult.ok(JSONObject.toJSONString(product));
     }
 
-    @PostMapping("/getProducts")
+    @PostMapping(value = "/getProducts")
     public JSONResult getProductsByCategoryName(String categoryName) {
         List<Product> products = productService.getProductsByCategoryName(categoryName);
         return JSONResult.ok(JSONObject.toJSONString(products));

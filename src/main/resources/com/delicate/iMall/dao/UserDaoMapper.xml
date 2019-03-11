@@ -16,7 +16,7 @@
 			username = #{username},
 			password = #{password},
 			salt = #{salt},
-			nickname= = #{nickname},
+			nickname = #{nickname},
 			avatar = #{avatar},
 			gender = #{gender},
 			phone = #{phone},

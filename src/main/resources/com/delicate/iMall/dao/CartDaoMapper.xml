@@ -13,7 +13,7 @@
 	</insert>
 
 	<delete id="deleteCartItemById">
-		delete from cart_item where productId = #{productId}
+		delete from cart_item where productId = #{productId} and cartId = #{cartId}
 	</delete>
 
 	<update id="updateCartItemInfo" parameterType="com.delicate.iMall.bean.CartItem">
@@ -21,7 +21,7 @@
 			cartId = #{cartId},
 			productId = #{productId},
 			count = #{count},
-			price = = #{price}
+			price = #{price}
 		  where id = #{id}
 	</update>
 
@@ -29,4 +29,12 @@
 		INSERT INTO cart(id, userId, price)
 		VALUES(#{id}, #{userId}, #{price})
 	</insert>
+
+	<select id="findCartByUserId" resultType="com.delicate.iMall.bean.Cart" parameterType="String">
+		SELECT * FROM cart WHERE userId=#{userId}
+	</select>
+
+	<select id="findCartItemById" resultType="com.delicate.iMall.bean.CartItem" parameterType="String">
+		SELECT * FROM cart_item WHERE cartId=#{cartId} and productId=#{productId}
+	</select>
 </mapper>
