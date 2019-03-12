@@ -1,13 +1,11 @@
 package com.delicate.iMall.controller;
 
-import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
 import com.delicate.iMall.bean.User;
 import com.delicate.iMall.service.UserService;
 import com.delicate.iMall.utils.JSONResult;
 import com.delicate.iMall.utils.MD5Utils;
 import com.delicate.iMall.utils.idworker.Sid;
-import com.qiniu.util.Auth;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,9 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.UUID;
 
 @RestController
