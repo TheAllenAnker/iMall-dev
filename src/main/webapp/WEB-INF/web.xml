@@ -6,7 +6,7 @@
   <display-name>iMall</display-name>
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:applicationContext.xml</param-value>
+    <param-value>/WEB-INF/applicationContext.xml</param-value>
   </context-param>
   <!-- 他会去监听servlet的创建 -->
   <listener>
@@ -20,7 +20,7 @@
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>classpath:spring-mvc.xml</param-value>
+      <param-value>/WEB-INF/spring-mvc.xml</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>

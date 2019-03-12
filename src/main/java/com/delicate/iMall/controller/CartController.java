@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.delicate.iMall.bean.Cart;
 import com.delicate.iMall.bean.CartItem;
 import com.delicate.iMall.bean.Product;
-import com.delicate.iMall.bean.vo.CartItemVO;
+import com.delicate.iMall.bean.CartItemVO;
 import com.delicate.iMall.service.CartService;
 import com.delicate.iMall.service.ProductService;
 import com.delicate.iMall.utils.JSONResult;
@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -78,9 +79,15 @@ public class CartController {
     @PostMapping(path = "/getCartItems")
     public JSONResult getCartItemsByUserId(String userId) {
         Cart cart = cartService.findCartByUserId(userId);
-        List<CartItemVO> cartItemVOs = null;
+        List<CartItemVO> cartItemVOs = new ArrayList<>();
         if (cart != null) {
-
+            List<CartItem> cartItemList = cartService.getAllCartItemsByCartId(cart.getId());
+            for (CartItem cartItem : cartItemList) {
+                CartItemVO vo = new CartItemVO();
+                vo.setCartItem(cartItem);
+                vo.setProduct(productService.findProductById(cartItem.getProductId()));
+                cartItemVOs.add(vo);
+            }
         }
 
         return JSONResult.ok(JSONObject.toJSONString(cartItemVOs));
