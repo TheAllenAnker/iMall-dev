@@ -5,28 +5,23 @@
 }
 
 body {
-    background: url(../img/background.jpg) no-repeat center center;
     background-size: cover;
-    background-attachment: fixed;
+    background: url(../img/background.jpg) no-repeat fixed center center;
 }
 
 
 .main {
-    margin: 0 auto;
     padding-left: 25px;
     padding-right: 25px;
     padding-top: 15px;
     width: 350px;
     height: auto;
-    background: #FFFFFF;
     /*以下css用于让登录表单垂直居中在界面,可删除*/
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -175px;
-    margin-left: -175px;
-    margin-bottom: 50px;
-    background-color: rgba(0, 0, 0, 0.1);
+    margin: -175px auto 50px -175px;
+    background: rgba(0, 0, 0, 0.1);
     border-radius: 10px 10px 10px 10px;
 }
 
@@ -89,9 +84,4 @@ body {
     cursor: pointer;
     background: #4B088A;
 }
-
-form {
-    margin: 0 auto
-}
-
 

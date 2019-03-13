@@ -14,6 +14,11 @@ public class UserAddressServiceImpl implements UserAddressService {
     private UserAddressDao userAddressDao;
 
     @Override
+    public UserAddress getAddressByAddressId(String addressId) {
+        return userAddressDao.getAddressByAddressId(addressId);
+    }
+
+    @Override
     public List<UserAddress> getAddressesByUserId(String userId) {
         return userAddressDao.getAddressesByUserId(userId);
     }

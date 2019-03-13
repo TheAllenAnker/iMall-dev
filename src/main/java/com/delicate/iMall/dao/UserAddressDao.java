@@ -1,17 +1,20 @@
 package com.delicate.iMall.dao;
 
 import com.delicate.iMall.bean.UserAddress;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
 public interface UserAddressDao {
-    List<UserAddress> getAddressesByUserId(String userId);
+    UserAddress getAddressByAddressId(@Param("addressId") String addressId);
 
-    void addAddress(UserAddress address);
+    List<UserAddress> getAddressesByUserId(@Param("userId")String userId);
 
-    void deleteAddressById(String id);
+    void addAddress(@Param("address") UserAddress address);
+
+    void deleteAddressById(@Param("id") String id);
 
     void updateAddressInfo(UserAddress userAddress);
 }
