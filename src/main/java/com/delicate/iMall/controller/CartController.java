@@ -31,9 +31,7 @@ public class CartController {
 
     @PostMapping(path = "/addCartItem")
     public JSONResult addCartItem(String userId, String productId) {
-        CartItem cartItem = new CartItem();
         Cart cart = cartService.findCartByUserId(userId);
-        Product product = productService.findProductById(productId);
         if (cart == null) {
             cart = new Cart();
             cart.setId(sid.nextShort().substring(0, 8));
@@ -42,12 +40,19 @@ public class CartController {
             cartService.addCart(cart);
         }
 
-        cartItem.setId(sid.nextShort().substring(0, 8));
-        cartItem.setCartId(cart.getId());
-        cartItem.setProductId(productId);
-        cartItem.setCount(1);
-        cartItem.setPrice(product.getPrice());
-        cartService.addCartItem(cartItem);
+        CartItem cartItem = cartService.findCartItemById(cart.getId(), productId);
+        Product product = productService.findProductById(productId);
+        if (cartItem != null) {
+            cartItem.setCount(cartItem.getCount() + 1);
+            cartService.updateCartItemInfo(cartItem);
+        } else {
+            cartItem = new CartItem();
+            cartItem.setId(sid.nextShort().substring(0, 8));
+            cartItem.setProductId(productId);
+            cartItem.setCount(1);
+            cartItem.setPrice(product.getPrice());
+            cartService.addCartItem(cartItem);
+        }
 
         return JSONResult.ok();
     }

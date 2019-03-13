@@ -12,7 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        super.configure(auth);
+        auth.inMemoryAuthentication().withUser("admin").password("123456").roles("ADMIN");
     }
 
     @Override
@@ -32,7 +32,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/js/**", "/css/**", "/image/**");
+    public void configure(WebSecurity web) {
+        web.ignoring().antMatchers("**/js/**", "**/css/**", "**/img/**");
     }
 }
