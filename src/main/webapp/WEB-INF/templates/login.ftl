@@ -14,19 +14,19 @@
         <span>iMall 管理员登录</span>
     </div>
 
-    <form class="login-form" method="post" novalidate>
+    <form action="/admin/login" class="login-form" method="post" novalidate>
         <!--输入框-->
         <div class="input-content">
             <!--autoFocus-->
             <div>
                 <input type="text" autocomplete="off"
-                       placeholder="用户名" name="userNameOrEmailAddress" required/>
+                       placeholder="用户名" name="username" required/>
             </div>
 
 
             <div style="margin-top: 10px">
                 <input type="password" autocomplete="off"
-                       placeholder="密码" required/>
+                       placeholder="密码" name="password" required/>
             </div>
 
 
