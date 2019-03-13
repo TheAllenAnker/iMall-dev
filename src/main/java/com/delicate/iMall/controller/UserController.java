@@ -1,6 +1,5 @@
 package com.delicate.iMall.controller;
 
-import com.alibaba.fastjson.JSONObject;
 import com.delicate.iMall.bean.User;
 import com.delicate.iMall.service.UserService;
 import com.delicate.iMall.utils.JSONResult;
@@ -76,20 +75,7 @@ public class UserController {
         }
     }
 
-    @PostMapping("/deleteUser")
-    public JSONResult deleteUser(String userId) {
-        userService.deleteUserById(userId);
-        return JSONResult.ok();
-    }
-
-    @PostMapping("/updateUseInfo")
-    public JSONResult updateUserInfo(String infoJSONString) {
-        User user = JSONObject.parseObject(infoJSONString, User.class);
-        userService.updateUserInfo(user);
-        return JSONResult.ok(user);
-    }
-
-    @RequestMapping("/query")
+    @PostMapping("/query")
     public JSONResult queryUserInfo(String userId) {
         User user = userService.findUserById(userId);
         return JSONResult.ok(user);
