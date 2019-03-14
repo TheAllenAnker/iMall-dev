@@ -94,11 +94,4 @@ public class AdminController {
         userService.deleteUserById(userId);
         return JSONResult.ok();
     }
-
-    @PostMapping("/updateUseInfo")
-    public JSONResult updateUserInfo(String infoJSONString) {
-        User user = JSONObject.parseObject(infoJSONString, User.class);
-        userService.updateUserInfo(user);
-        return JSONResult.ok(user);
-    }
 }

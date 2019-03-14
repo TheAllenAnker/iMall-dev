@@ -1,17 +1,20 @@
 package com.delicate.iMall.controller;
 
+import com.alibaba.fastjson.JSONException;
+import com.alibaba.fastjson.JSONObject;
 import com.delicate.iMall.bean.User;
 import com.delicate.iMall.service.UserService;
 import com.delicate.iMall.utils.JSONResult;
 import com.delicate.iMall.utils.MD5Utils;
 import com.delicate.iMall.utils.idworker.Sid;
+import com.qiniu.util.Auth;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.UUID;
 
 @RestController
@@ -79,5 +82,36 @@ public class UserController {
     public JSONResult queryUserInfo(String userId) {
         User user = userService.findUserById(userId);
         return JSONResult.ok(user);
+    }
+
+    @PostMapping("/updateUserInfo")
+    public JSONResult updateUserInfo(@RequestBody User inUser) {
+        String avatarUrl = inUser.getAvatar();
+        String userId = inUser.getId();
+        User user = userService.findUserById(userId);
+        user.setAvatar(avatarUrl);
+        userService.updateUserInfo(user);
+        return JSONResult.ok(user);
+    }
+
+    @GetMapping("/upToken")
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String accessKey = "2aiJLqCWLBBxgJvr2_I3vJLCoXF-_VOTInC7T9k2";
+        String secretKey = "MqTNJFCoqTvRZom6zb1BQEQ5Xy5l8hF3VCsA_sr0";
+        // 要上传的空间名--
+        String bucket = "imall";
+        String key = null;
+        Auth auth = Auth.create(accessKey, secretKey);
+        String upToken = auth.uploadToken(bucket, key);
+        System.out.println(upToken);
+        response.setContentType("text/html;charset=UTF-8");
+        JSONObject obj = new JSONObject(); // 定义一个描述json的数据
+        try {
+            obj.put("uptoken", upToken);
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        response.getWriter().write(obj.toString());
     }
 }
