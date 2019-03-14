@@ -12,10 +12,7 @@ import com.delicate.iMall.utils.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/admin")
@@ -32,19 +29,19 @@ public class AdminController {
     @Autowired
     private Sid sid;
 
+    @GetMapping("/loginPage")
+    public String loginPage() {
+        return "login";
+    }
+
     @PostMapping("/login")
-    public JSONResult login(String username, String password) {
-        return JSONResult.ok();
+    public String login(@RequestParam("username") String username,
+                        @RequestParam("password") String password) {
+        return "redirect:/admin/index";
     }
 
-    @PostMapping("/logout")
-    public JSONResult logout() {
-        return JSONResult.ok();
-    }
-
-    @GetMapping("/manage")
+    @GetMapping("/index")
     public String adminManagePage(Model model) {
-
         return "index";
     }
 

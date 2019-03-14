@@ -14,7 +14,7 @@
         <span>iMall 管理员登录</span>
     </div>
 
-    <form action="/admin/login" class="login-form" method="post" novalidate>
+    <form action="/iMall/admin/login" class="login-form" method="POST">
         <!--输入框-->
         <div class="input-content">
             <!--autoFocus-->
