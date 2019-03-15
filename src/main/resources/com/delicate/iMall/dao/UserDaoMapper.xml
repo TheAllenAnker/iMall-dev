@@ -7,11 +7,11 @@
 		SELECT * FROM user WHERE id=#{id} and status = 0
 	</select>
 
-	<select id="findUserByUsername" resultType="com.delicate.iMall.bean.User" parameterType="String">
+    <select id="findUserByUsername" resultType="com.delicate.iMall.bean.User" parameterType="String">
 		SELECT * FROM user WHERE username=#{username} and status = 0
 	</select>
 
-	<update id="updateUserInfo" parameterType="com.delicate.iMall.bean.User">
+    <update id="updateUserInfo" parameterType="com.delicate.iMall.bean.User">
 		update user set
 			username = #{username},
 			password = #{password},
@@ -25,12 +25,12 @@
 		  where id = #{id}
 	</update>
 
-	<insert id="saveUser" parameterType="com.delicate.iMall.bean.User">
+    <insert id="saveUser" parameterType="com.delicate.iMall.bean.User">
 		insert into user (id,username,password,salt,nickname,avatar,gender,phone,email,status)
 		  values (#{id},#{username},#{password},#{salt},#{nickname},#{avatar},#{gender},#{phone},#{email},#{status})
 	</insert>
 
-	<update id="deleteUserById">
+    <update id="deleteUserById">
 		update user set
 			status = 1
 		where id = #{id}

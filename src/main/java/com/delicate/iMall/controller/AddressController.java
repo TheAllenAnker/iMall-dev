@@ -63,11 +63,10 @@ public class AddressController {
     public JSONResult addAddress(String userId, String address) {
         UserAddress userAddress = new UserAddress();
 
-        userAddress.setId(sid.nextShort().substring(0, 8));
+        userAddress.setId(sid.nextShort());
         userAddress.setUserId(userId);
         userAddress.setAddress(address);
         userAddress.setStatus(0);
-
         userAddressService.addAddress(userAddress);
         return JSONResult.ok();
     }

@@ -16,13 +16,13 @@
 		  values (#{id},#{username},#{password},#{salt},#{status})
 	</insert>
 
-	<update id="deleteAdmin">
+    <update id="deleteAdmin">
 		update admin_user set
 			status = 1
 		where id = #{id}
 	</update>
 
-	<update id="updateAdminInfo" parameterType="com.delicate.iMall.bean.Admin">
+    <update id="updateAdminInfo" parameterType="com.delicate.iMall.bean.Admin">
 	  update admin_user set
 		username = #{username},
 		password = #{password},

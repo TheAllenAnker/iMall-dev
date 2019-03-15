@@ -10,9 +10,9 @@ import java.util.List;
 public interface UserAddressDao {
     UserAddress getAddressByAddressId(@Param("addressId") String addressId);
 
-    List<UserAddress> getAddressesByUserId(@Param("userId")String userId);
+    List<UserAddress> getAddressesByUserId(@Param("userId") String userId);
 
-    void addAddress(@Param("address") UserAddress address);
+    void addAddress(UserAddress userAddress);
 
     void deleteAddressById(@Param("id") String id);
 
