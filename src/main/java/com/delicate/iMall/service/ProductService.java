@@ -14,4 +14,6 @@ public interface ProductService {
     void updateProductInfo(Product product);
 
     List<Product> getProductsByCategoryName(String categoryName);
+
+    List<Product> getAllProducts();
 }

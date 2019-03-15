@@ -43,4 +43,9 @@ public class ProductServiceImpl implements ProductService {
         ProductCategory category = productCategoryDao.getProductCategoryByName(categoryName);
         return category == null ? null : productDao.getProductsByCategoryId(category.getId()) ;
     }
+
+    @Override
+    public List<Product> getAllProducts() {
+        return productDao.getAllProducts();
+    }
 }

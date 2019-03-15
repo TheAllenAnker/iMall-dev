@@ -45,31 +45,31 @@
         <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="http://www.creative-tim.com" class="simple-text">
-                    IMALL商城后台管理系统
+                    iMall 商城后台管理系统
                 </a>
             </div>
 
             <ul class="nav">
                 <li class="active">
-                    <a href="addCategory.ftl">
+                    <a href="/iMall/admin/addCategoryPage">
                         <i class="pe-7s-menu"></i>
                         <p>添加分类</p>
                     </a>
                 </li>
                 <li>
-                    <a href="addProducts.ftl">
+                    <a href="/iMall/admin/addProductPage">
                         <i class="pe-7s-plus"></i>
                         <p>添加商品</p>
                     </a>
                 </li>
                 <li>
-                    <a href="catagory.ftl">
+                    <a href="/iMall/admin/categoryPage">
                         <i class="pe-7s-note2"></i>
                         <p>分类列表</p>
                     </a>
                 </li>
                 <li>
-                    <a href="typography.ftl">
+                    <a href="/iMall/admin/productListPage">
                         <i class="pe-7s-news-paper"></i>
                         <p>商品列表</p>
                     </a>
@@ -169,21 +169,14 @@
                                 <h4 class="title">Add Category</h4>
                             </div>
                             <div class="content">
-                                <form>
+                                <form action="/iMall/admin/addCategory" method="post">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
+
                                                 <label>Level</label>
-                                                <select name="categories" size="1">
-                                                    <option value="clothes">衣服</option>
-                                                    <option value="bags">包包</option>
-                                                    <option value="shoes">鞋子</option>
-                                                    <option value="cosmetic">化妆品</option>
-                                                    <option value="electronics">电子产品</option>
-
-                                                </select>
-
-
+                                                <input type="text" name="level" class="form-control"
+                                                       placeholder="层级">
                                             </div>
                                         </div>
 
@@ -192,23 +185,15 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Categpry Name</label>
-                                                <input type="text" class="form-control" placeholder="分类名称">
+                                                <label>Category Name</label>
+                                                <input type="text" name="name" class="form-control"
+                                                       placeholder="分类名称">
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>About Category</label>
-                                                <textarea rows="5" class="form-control"
-                                                          placeholder="在这里输入关于你分类的描述"></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <button type="submit" class="btn btn-info btn-fill pull-right">Add CateGory</button>
+                                    <button type="submit" class="btn btn-info btn-fill pull-right">Add Category</button>
                                     <div class="clearfix"></div>
                                 </form>
                             </div>

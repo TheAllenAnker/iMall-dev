@@ -1,7 +1,7 @@
 <#import "/spring.ftl" as spring />
 <html lang="en">
 <head>
-	<meta charset="utf-8"/>
+    <meta charset="utf-8"/>
     <link rel="icon" type="image/png" href="<@spring.url '/resources/img/favicon.ico'/>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 
@@ -34,50 +34,51 @@
 <div class="wrapper">
     <div class="sidebar" data-color="purple" data-image="<@spring.url '/resources/img/sidebar-5.jpg'/>">
 
-    <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
+        <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
 
 
-    	<div class="sidebar-wrapper">
+        <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="http://www.creative-tim.com" class="simple-text">
-                    IMALL商城后台管理系统
+                    iMall 商城后台管理系统
                 </a>
             </div>
 
             <ul class="nav">
                 <li>
-                    <a href="addCategory.ftl">
+                    <a href="/iMall/admin/addCategoryPage">
                         <i class="pe-7s-menu"></i>
                         <p>添加分类</p>
                     </a>
                 </li>
                 <li class="active">
-                    <a href="addProducts.ftl">
+                    <a href="/iMall/admin/addProductPage">
                         <i class="pe-7s-plus"></i>
                         <p>添加商品</p>
                     </a>
                 </li>
                 <li>
-                    <a href="catagory.ftl">
+                    <a href="/iMall/admin/categoryPage">
                         <i class="pe-7s-note2"></i>
                         <p>分类列表</p>
                     </a>
                 </li>
                 <li>
-                    <a href="typography.ftl">
+                    <a href="/iMall/admin/productListPage">
                         <i class="pe-7s-news-paper"></i>
                         <p>商品列表</p>
                     </a>
                 </li>
             </ul>
-    	</div>
+        </div>
     </div>
 
     <div class="main-panel">
-		<nav class="navbar navbar-default navbar-fixed">
+        <nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target="#navigation-example-2">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -90,50 +91,50 @@
                         <li>
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-dashboard"></i>
-								<p class="hidden-lg hidden-md">Dashboard</p>
+                                <p class="hidden-lg hidden-md">Dashboard</p>
                             </a>
                         </li>
                         <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-globe"></i>
-                                    <b class="caret hidden-sm hidden-xs"></b>
-                                    <span class="notification hidden-sm hidden-xs">5</span>
-									<p class="hidden-lg hidden-md">
-										5 Notifications
-										<b class="caret"></b>
-									</p>
-                              </a>
-                              <ul class="dropdown-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-globe"></i>
+                                <b class="caret hidden-sm hidden-xs"></b>
+                                <span class="notification hidden-sm hidden-xs">5</span>
+                                <p class="hidden-lg hidden-md">
+                                    5 Notifications
+                                    <b class="caret"></b>
+                                </p>
+                            </a>
+                            <ul class="dropdown-menu">
                                 <li><a href="#">Notification 1</a></li>
                                 <li><a href="#">Notification 2</a></li>
                                 <li><a href="#">Notification 3</a></li>
                                 <li><a href="#">Notification 4</a></li>
                                 <li><a href="#">Another notification</a></li>
-                              </ul>
+                            </ul>
                         </li>
                         <li>
-                           <a href="">
+                            <a href="">
                                 <i class="fa fa-search"></i>
-								<p class="hidden-lg hidden-md">Search</p>
+                                <p class="hidden-lg hidden-md">Search</p>
                             </a>
                         </li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                           <a href="">
-                               <p>Account</p>
+                            <a href="">
+                                <p>Account</p>
                             </a>
                         </li>
                         <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <p>
-										Dropdown
-										<b class="caret"></b>
-									</p>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <p>
+                                    Dropdown
+                                    <b class="caret"></b>
+                                </p>
 
-                              </a>
-                              <ul class="dropdown-menu">
+                            </a>
+                            <ul class="dropdown-menu">
                                 <li><a href="#">Action</a></li>
                                 <li><a href="#">Another action</a></li>
                                 <li><a href="#">Something</a></li>
@@ -141,14 +142,14 @@
                                 <li><a href="#">Something</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#">Separated link</a></li>
-                              </ul>
+                            </ul>
                         </li>
                         <li>
                             <a href="#">
                                 <p>Log out</p>
                             </a>
                         </li>
-						<li class="separator hidden-lg hidden-md"></li>
+                        <li class="separator hidden-lg hidden-md"></li>
                     </ul>
                 </div>
             </div>
@@ -164,56 +165,55 @@
                                 <h4 class="title">Add Product</h4>
                             </div>
                             <div class="content">
-                                <form>
+                                <form action="/iMall/admin/addProduct" method="post" enctype="multipart/form-data">
                                     <div class="row">
-                                        
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Category</label>
-                                                <input type="text" class="form-control" placeholder="CategoryId">
+                                                <label>Product Category</label>
+                                                <input type="text" name="categoryId" class="form-control"
+                                                       placeholder="CategoryId">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Productname</label>
-                                                <input type="text" class="form-control" placeholder="商品名称">
+                                                <label>Product Name</label>
+                                                <input type="text" name="productName" class="form-control"
+                                                       placeholder="商品名称">
                                             </div>
                                         </div>
-                                        
-                                        
                                     </div>
 
                                     <div class="row">
-                                    	
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Inventory Repertory</label>
-                                                <input type="text" class="form-control" placeholder="现库存数量为     件">
+                                                <label>Inventory</label>
+                                                <input type="text" name="inventory" class="form-control"
+                                                       placeholder="库存数量">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label >Product Price</label>
-                                                <input type="text" class="form-control" placeholder="商品价格">
+                                                <label>Product Price</label>
+                                                <input type="text" name="price" class="form-control" placeholder="商品价格">
                                             </div>
                                         </div>
-                                        
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Product Cover</label>
+                                                <input type="file" name="cover" value="请选择文件"/> <br/>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Cover</label>
-                                                <input type="text" class="form-control" placeholder="封面图片">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>About Product</label>
-                                                <textarea rows="5" class="form-control" placeholder="在这里输入关于你添加的商品的描述"></textarea>
+                                                <label>Product Description</label>
+                                                <textarea rows="5" name="description" class="form-control"
+                                                          placeholder="在这里输入关于你添加的商品的描述"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -221,10 +221,10 @@
                                     <button type="submit" class="btn btn-info btn-fill pull-right">Add Product</button>
                                     <div class="clearfix"></div>
                                 </form>
+
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -251,12 +251,12 @@
                         </li>
                         <li>
                             <a href="#">
-                               Blog
+                                Blog
                             </a>
                         </li>
                     </ul>
                 </nav>
-                
+
             </div>
         </footer>
 

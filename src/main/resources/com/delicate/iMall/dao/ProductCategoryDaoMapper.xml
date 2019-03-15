@@ -7,18 +7,18 @@
 		SELECT * FROM prod_cate where status = 0
 	</select>
 
-	<insert id="addProductCategory" parameterType="com.delicate.iMall.bean.ProductCategory">
-		insert into prod_cate (id,'level','name',status)
+    <insert id="addProductCategory" parameterType="com.delicate.iMall.bean.ProductCategory">
+		insert into prod_cate (id,level,name,status)
 		  values (#{id},#{level},#{name},#{status})
 	</insert>
 
-	<update id="deleteProductCategoryByName">
+    <update id="deleteProductCategoryByName">
 		update prod_cate set
 			status = 1
 		where name = #{name}
 	</update>
 
-	<update id="updateProductCategoryInfo" parameterType="com.delicate.iMall.bean.ProductCategory">
+    <update id="updateProductCategoryInfo" parameterType="com.delicate.iMall.bean.ProductCategory">
 		update prod_cate set
 			level = #{level},
 			name = #{name},
@@ -26,7 +26,7 @@
 		  where id = #{id}
 	</update>
 
-	<select id="getProductCategoryByName" resultType="com.delicate.iMall.bean.ProductCategory">
+    <select id="getProductCategoryByName" resultType="com.delicate.iMall.bean.ProductCategory">
 		SELECT * FROM prod_cate where name=#{categoryName} and status = 0
 	</select>
 </mapper>

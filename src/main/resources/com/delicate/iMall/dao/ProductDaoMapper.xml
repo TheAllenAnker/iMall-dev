@@ -7,6 +7,10 @@
 		SELECT * FROM product WHERE id=#{productId} and status = 0
 	</select>
 
+	<select id="getAllProducts" resultType="com.delicate.iMall.bean.Product" parameterType="String">
+		SELECT * FROM product WHERE status = 0
+	</select>
+
     <select id="getNewProducts" resultType="com.delicate.iMall.bean.Product">
 		SELECT * FROM product
 		WHERE categoryId IN
