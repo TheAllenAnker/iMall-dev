@@ -158,15 +158,17 @@ public class AdminController {
     }
 
     public String uploadImage(MultipartFile image) throws IOException {
+        // 七牛云默认外链
+        final String QINIU_UPLOAD_URL = "http://pnu0mosmq.bkt.clouddn.com/";
         //方法一 获取相对应的流
         InputStream stream = image.getInputStream();
         //构造一个带指定Zone对象的配置类
-        Configuration cfg = new Configuration(Zone.zone0());
+        Configuration cfg = new Configuration(Zone.zone2());
         //...其他参数参考类注释
         UploadManager uploadManager = new UploadManager(cfg);
         //...生成上传凭证，然后准备上传
-        String accessKey = "2aiJLqCWLBBxgJvr2_I3vJLCoXF-_VOTInC7T9k2";
-        String secretKey = "MqTNJFCoqTvRZom6zb1BQEQ5Xy5l8hF3VCsA_sr0";
+        String accessKey = "4uyEuvP8g2_iqoyZFdKQ5umqMJdLPduSbonVbfev";
+        String secretKey = "gHtwzohBxs_lVZaL0mvQKIEATnp_hIOw9usm4xoG";
         String bucket = "imall";
         //默认不指定key的情况下，以文件内容的hash值作为文件名
         String key = UUID.randomUUID().toString().replaceAll("\\-", "");
@@ -180,7 +182,7 @@ public class AdminController {
                 DefaultPutRet putRet = new Gson().fromJson(response.bodyString(), DefaultPutRet.class);
                 System.out.println(putRet.key);
                 // System.out.println(putRet.hash);
-                return putRet.key;
+                return QINIU_UPLOAD_URL + putRet.key;
             } catch (QiniuException ex) {
                 Response r = ex.response;
                 System.err.println(r.toString());

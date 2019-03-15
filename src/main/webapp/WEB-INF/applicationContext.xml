@@ -124,6 +124,13 @@
         <property name="maxInMemorySize" value="4096"/>
     </bean>
 
+    <!-- 视图解释器 -->
+    <!-- 用于配置访问地址的前后缀  -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/"/>
+        <property name="suffix" value=".html"/>
+    </bean>
+
     <context:component-scan base-package="com.delicate.iMall.service"/>
     <context:component-scan base-package="com.delicate.iMall.dao"/>
     <context:component-scan base-package="com.delicate.iMall.config"/>
